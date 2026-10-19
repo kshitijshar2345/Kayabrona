@@ -1,0 +1,16 @@
+# backend/.dockerignore
+# Keeps Docker build context small and fast.
+# Prevents the local target/ folder from interfering with the Docker build.
+
+target/
+*.log
+.idea/
+*.iml
+*.iws
+*.ipr
+.mvn/wrapper/maven-wrapper.jar
+src/test/
+
+# Never include local properties with passwords
+src/main/resources/application.properties
+src/main/resources/application-local.properties
