@@ -33,10 +33,13 @@ const App = () => {
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/login" element={<Login />} />
+
+            {/* Admin login */}
             <Route
               path="/admin-login"
               element={<Login adminOnly />}
             />
+
             <Route path="/register" element={<Register />} />
 
             {/* Protected customer pages */}
@@ -67,7 +70,7 @@ const App = () => {
               }
             />
 
-            {/* Admin-only dashboard */}
+            {/* Admin dashboard */}
             <Route
               path="/admin"
               element={
