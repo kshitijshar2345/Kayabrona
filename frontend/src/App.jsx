@@ -26,22 +26,56 @@ const App = () => {
         <BrowserRouter>
           <Navbar />
           <ToastContainer />
+
           <Routes>
-            {/* Public */}
+            {/* Public pages */}
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/login" element={<Login />} />
+            <Route
+              path="/admin-login"
+              element={<Login adminOnly />}
+            />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
 
-            {/* Protected — logged-in users */}
-            <Route path="/cart"    element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path="/orders"  element={<ProtectedRoute><Orders /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            {/* Protected customer pages */}
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <Cart />
+                </ProtectedRoute>
+              }
+            />
 
-            {/* Admin only — ROLE_ADMIN */}
-            <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>} />
+            <Route
+              path="/orders"
+              element={
+                <ProtectedRoute>
+                  <Orders />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Admin-only dashboard */}
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <Admin />
+                </AdminRoute>
+              }
+            />
 
             {/* 404 */}
             <Route path="/404" element={<NotFound />} />
